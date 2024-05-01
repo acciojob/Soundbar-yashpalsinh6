@@ -1,13 +1,26 @@
 //your JS code here. If required.
-function playSound(soundFile) {
-    var audio = new Audio('sounds/' + soundFile);
-    audio.play();
-}
+const buttons = document.querySelectorAll('.btn');
+const stopButton = document.querySelector('.stop');
 
-function stopSound() {
-    var audioElements = document.getElementsByTagName('button');
-    for (var i = 0; i < audioElements.length; i++) {
-        audioElements[i].pause();
-        audioElements[i].currentTime = 0;
-    }
-}
+const sounds = {
+  applause: new Audio('sounds/applause.mp3'),
+  boo: new Audio('sounds/boo.mp3'),
+  gasp: new Audio('sounds/gasp.mp3'),
+  tada: new Audio('sounds/tada.mp3'),
+  victory: new Audio('sounds/victory.mp3'),
+  wrong: new Audio('sounds/wrong.mp3')
+};
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const sound = sounds[button.innerText];
+    sound.play();
+  });
+});
+
+stopButton.addEventListener('click', () => {
+  for (let sound in sounds) {
+    sounds[sound].pause();
+    sounds[sound].currentTime = 0;
+  }
+});
