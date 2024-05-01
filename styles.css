@@ -1,1 +1,12 @@
 /*  your css code here. If applicable */
+body{
+	background-color: purple;
+}
+#buttons{
+	background-color: violet;
+	padding: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+	color: white;
+	
+}
